@@ -1,5 +1,5 @@
 # 数据预处理配置
-IMG_PATH = "../common/dataset/"
+IMG_PATH = "/root/datasets/imagedata/dataset"
 IMG_HEIGHT = 68
 IMG_WIDTH = 68
 

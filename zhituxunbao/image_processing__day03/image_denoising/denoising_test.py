@@ -42,6 +42,9 @@ def test(denoiser, test_loader, device):
             ax.imshow(img)
             ax.axis('off')
     plt.show()
+    # 将末尾的 plt.show() 替换为：
+    plt.savefig('result.png', bbox_inches='tight')
+    print("图片已保存至当前目录下的 result.png")
 
 
 if __name__ == '__main__':

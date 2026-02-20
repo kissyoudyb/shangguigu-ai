@@ -12,8 +12,8 @@ NOISE_FACTOR = 0.5      # 噪声因子
 # 训练超参数设置
 LEARNING_RATE = 0.001   # 学习率
 EPOCHS = 50             # 训练总轮次
-TRAIN_BATCH_SIZE = 128   # mini-batch大小
-TEST_BATCH_SIZE = 128
+TRAIN_BATCH_SIZE = 4096   # mini-batch大小
+TEST_BATCH_SIZE = 4096
 
 # 模块名称和保存模型参数的文件名
 PROJECT_PACKAGE_NAME = 'image_denoising'

@@ -71,9 +71,9 @@ model_groups:
         api_base: "https://dashscope.aliyuncs.com/compatible-mode/v1"
         api_key: ${DASHSCOPE_API_KEY}
 
-  # - id: qwen3_8b
-  #   models:
-  #     - provider: self-hosted
-  #       model: Qwen3-8B-sft #与VLLM启动时指定的served-model-name保持一致，否则报错找不到模型
-  #       api_base: "<ngrok启动后提供的网址>/v1"
+  - id: qwen3_8b
+    models:
+      - provider: self-hosted
+        model: Qwen3-8B-sft #与VLLM启动时指定的served-model-name保持一致，否则报错找不到模型
+        api_base: "http://localhost:8000/v1"
 

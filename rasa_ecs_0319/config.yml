@@ -10,8 +10,8 @@ language: zh
 pipeline:
 - name: CompactLLMCommandGenerator
   llm:
-    model_group: qwen
-    # model_group: qwen3_8b
+    # model_group: qwen
+    model_group: qwen3_8b
   flow_retrieval:
     active: false # 禁用流程检索，默认使用的openai的Embedding模型 text-embedding-3-large，会要求 openai 的 key
 

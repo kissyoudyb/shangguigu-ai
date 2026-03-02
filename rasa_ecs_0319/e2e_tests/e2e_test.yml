@@ -1,0 +1,197 @@
+test_cases:
+  - test_case: O8a85bIHWpKwz7NzAAAB
+    steps:
+    - user: "切换用户"
+    - utter: utter_ask_continue_conversation
+    - user: "查询支持的物流"
+    - bot: "支持的快递有:\n- 中通\n- 圆通\n- 申通\n- 邮政\n- 韵达\n- 顺丰"
+    - utter: utter_ask_continue_conversation
+
+  - test_case: kxqlS5jBWl44OSp4AAAD
+    steps:
+    - user: "切换用户"
+    - utter: utter_ask_continue_conversation
+    - user: "查询订单"
+    - bot: "请选择订单"
+    - user: "/SetSlots(order_id=ord07c30f0563014b87)"
+    - bot: "- [已发货]**订单ID**：ord07c30f0563014b87\n  - 创建时间：2026-02-18 00:55:04\n  - 支付时间：2026-02-18 01:03:13\n- **订单明细**：\n  - 衣柜推拉门 × 1 |                 899.00-264.97=634.03\n  - **合计**：899.0-264.97=634.03\n- **收货信息**：\n  - 收货人：陈飞\n  - 联系电话：18715699516\n  - 收货地址：台湾省                云林县                斗南镇                杨路L座\n- **最近物流信息**：\n  - 2026-02-18 12:27:54 到达 江苏省徐州市"
+    - utter: utter_ask_continue_conversation
+
+  - test_case: o4KZNkKk2v7sIU1wAAAF
+    steps:
+    - user: "切换用户"
+    - utter: utter_ask_continue_conversation
+    - user: "查询订单"
+    - bot: "请选择订单"
+    - user: "/SetSlots(order_id=ord07c30f0563014b87)"
+    - bot: "- [已发货]**订单ID**：ord07c30f0563014b87\n  - 创建时间：2026-02-18 00:55:04\n  - 支付时间：2026-02-18 01:03:13\n- **订单明细**：\n  - 衣柜推拉门 × 1 |                 899.00-264.97=634.03\n  - **合计**：899.0-264.97=634.03\n- **收货信息**：\n  - 收货人：陈飞\n  - 联系电话：18715699516\n  - 收货地址：台湾省                云林县                斗南镇                杨路L座\n- **最近物流信息**：\n  - 2026-02-18 12:27:54 到达 江苏省徐州市"
+    - utter: utter_ask_continue_conversation
+    - user: "我要投诉物流"
+    - bot: "请选择订单"
+    - user: "/SetSlots(order_id=ord07c30f0563014b87)"
+    - bot: "- **订单ID**：ord07c30f0563014b87\n  - 衣柜推拉门 × 1\n- **物流ID**：lgt3a30bb893514418f\n- **物流信息**：\n  - 2026-02-18 06:16:31 台湾省彰化县社头乡 已揽收\n  - 2026-02-18 07:02:59 离开 台湾省彰化县社头乡，发往 浙江省金华市\n  - 2026-02-18 10:55:18 到达 浙江省金华市\n  - 2026-02-18 11:04:51 离开 浙江省金华市，发往 江苏省徐州市\n  - 2026-02-18 12:27:54 到达 江苏省徐州市"
+    - bot: "请选择要反馈的问题："
+    - user: "/SetSlots(logistics_complaint=商品破损/丢失)"
+    - bot: "您的投诉已经收到，我们会尽快处理。"
+    - utter: utter_ask_continue_conversation
+
+  - test_case: PFPBDRXLTyHBU_BtAAAH
+    steps:
+    - user: "切换用户"
+    - utter: utter_ask_continue_conversation
+    - user: "查询订单"
+    - bot: "请选择订单"
+    - user: "/SetSlots(order_id=ord07c30f0563014b87)"
+    - bot: "- [已发货]**订单ID**：ord07c30f0563014b87\n  - 创建时间：2026-02-18 00:55:04\n  - 支付时间：2026-02-18 01:03:13\n- **订单明细**：\n  - 衣柜推拉门 × 1 |                 899.00-264.97=634.03\n  - **合计**：899.0-264.97=634.03\n- **收货信息**：\n  - 收货人：陈飞\n  - 联系电话：18715699516\n  - 收货地址：台湾省                云林县                斗南镇                杨路L座\n- **最近物流信息**：\n  - 2026-02-18 12:27:54 到达 江苏省徐州市"
+    - utter: utter_ask_continue_conversation
+    - user: "投诉物流"
+    - bot: "请选择订单"
+    - user: "/SetSlots(order_id=ord07c30f0563014b87)"
+    - bot: "- **订单ID**：ord07c30f0563014b87\n  - 衣柜推拉门 × 1\n- **物流ID**：lgt3a30bb893514418f\n- **物流信息**：\n  - 2026-02-18 06:16:31 台湾省彰化县社头乡 已揽收\n  - 2026-02-18 07:02:59 离开 台湾省彰化县社头乡，发往 浙江省金华市\n  - 2026-02-18 10:55:18 到达 浙江省金华市\n  - 2026-02-18 11:04:51 离开 浙江省金华市，发往 江苏省徐州市\n  - 2026-02-18 12:27:54 到达 江苏省徐州市"
+    - bot: "请选择要反馈的问题："
+    - user: "/SetSlots(logistics_complaint=other)"
+    - utter: utter_ask_other_logistics_complaint
+    - user: "发货太慢了"
+    - bot: "您的投诉已经收到，我们会尽快处理。"
+    - utter: utter_ask_continue_conversation
+
+  - test_case: BJC634VixeJbbAOOAAAJ
+    steps:
+    - user: "切换用户"
+    - utter: utter_ask_continue_conversation
+    - user: "查询订单"
+    - bot: "请选择订单"
+    - user: "投诉物流"
+    - bot: "请选择订单"
+    - user: "/SetSlots(order_id=ord07c30f0563014b87)"
+    - bot: "- **订单ID**：ord07c30f0563014b87\n  - 衣柜推拉门 × 1\n- **物流ID**：lgt3a30bb893514418f\n- **物流信息**：\n  - 2026-02-18 06:16:31 台湾省彰化县社头乡 已揽收\n  - 2026-02-18 07:02:59 离开 台湾省彰化县社头乡，发往 浙江省金华市\n  - 2026-02-18 10:55:18 到达 浙江省金华市\n  - 2026-02-18 11:04:51 离开 浙江省金华市，发往 江苏省徐州市\n  - 2026-02-18 12:27:54 到达 江苏省徐州市"
+    - bot: "请选择要反馈的问题："
+    - user: "/SetSlots(logistics_complaint=长时间未更新物流信息)"
+    - bot: "您的投诉已经收到，我们会尽快处理。"
+    - utter: utter_ask_continue_interrupted_flow_confirmation
+
+  - test_case: AnGIrPH_wKqNskE5AAAN
+    steps:
+    - user: "切换用户"
+    - utter: utter_ask_continue_conversation
+    - user: "查询订单"
+    - bot: "请选择订单"
+    - user: "投诉物流"
+    - bot: "请选择订单"
+    - user: "/SetSlots(order_id=ord07c30f0563014b87)"
+    - bot: "- **订单ID**：ord07c30f0563014b87\n  - 衣柜推拉门 × 1\n- **物流ID**：lgt3a30bb893514418f\n- **物流信息**：\n  - 2026-02-18 06:16:31 台湾省彰化县社头乡 已揽收\n  - 2026-02-18 07:02:59 离开 台湾省彰化县社头乡，发往 浙江省金华市\n  - 2026-02-18 10:55:18 到达 浙江省金华市\n  - 2026-02-18 11:04:51 离开 浙江省金华市，发往 江苏省徐州市\n  - 2026-02-18 12:27:54 到达 江苏省徐州市"
+    - bot: "请选择要反馈的问题："
+    - user: "/SetSlots(logistics_complaint=false)"
+    - utter: utter_ask_continue_interrupted_flow_confirmation
+
+  - test_case: ZCDCL8kCF3V5-jb-AAAP
+    steps:
+    - user: "切换用户"
+    - utter: utter_ask_continue_conversation
+    - user: "查询订单"
+    - bot: "请选择订单"
+    - user: "/SetSlots(order_id=ord22d129c93c204e5a)"
+    - bot: "- [已签收]**订单ID**：ord22d129c93c204e5a\n  - 创建时间：2026-02-19 16:41:19\n  - 支付时间：2026-02-19 16:44:35\n  - 签收时间：2026-02-20 13:10:29\n- **订单明细**：\n  - 路由器 × 1 |                 169.00-163.85=5.15\n  - **合计**：169.0-163.85=5.15\n- **收货信息**：\n  - 收货人：王玉华\n  - 联系电话：13391014701\n  - 收货地址：江西省                抚州市                崇仁县                高街B座\n- **最近物流信息**：\n  - 2026-02-20 13:10:28 江西省抚州市崇仁县高街B座 已签收"
+    - utter: utter_ask_continue_conversation
+    - user: "修改订单收货信息"
+    - bot: "请选择订单"
+    - user: "/SetSlots(order_id=ord07c30f0563014b87)"
+    - bot: "- [已发货]**订单ID**：ord07c30f0563014b87\n  - 创建时间：2026-02-18 00:55:04\n  - 支付时间：2026-02-18 01:03:13\n- **订单明细**：\n  - 衣柜推拉门 × 1 |                 899.00-264.97=634.03\n  - **合计**：899.0-264.97=634.03\n- **收货信息**：\n  - 收货人：陈飞\n  - 联系电话：18715699516\n  - 收货地址：台湾省                云林县                斗南镇                杨路L座\n- **最近物流信息**：\n  - 2026-02-18 12:27:54 到达 江苏省徐州市"
+    - bot: "请选择现有的收货信息，或修改并新建收货信息"
+    - user: "/SetSlots(receive_id=recd39077a751814898)"
+    - bot: "- 收货人姓名：王玉华\n- 联系电话：13391014701\n- 收货省份：江西省\n- 收货城市：抚州市\n- 收货城区：崇仁县\n- 收货地址：高街B座"
+    - bot: "是否确认修改？"
+    - user: "/SetSlots(set_receive_info=true)"
+    - bot: "订单收货信息已修改"
+    - utter: utter_ask_continue_conversation
+
+  - test_case: NZnn4s0_SyQPgf_lAAAT
+    steps:
+    - user: "切换用户"
+    - utter: utter_ask_continue_conversation
+    - user: "修改订单信息"
+    - bot: "请选择订单"
+    - user: "/SetSlots(order_id=ord7b302245c2a64a9b)"
+    - bot: "- [待发货]**订单ID**：ord7b302245c2a64a9b\n  - 创建时间：2026-02-21 09:04:43\n  - 支付时间：2026-02-21 09:06:13\n- **订单明细**：\n  - 纯棉四件套 × 1 |                 289.00-94.94=194.06\n  - **合计**：289.0-94.94=194.06\n- **收货信息**：\n  - 收货人：陈飞\n  - 联系电话：18715699516\n  - 收货地址：台湾省                云林县                斗南镇                杨路L座"
+    - bot: "请选择现有的收货信息，或修改并新建收货信息"
+    - user: "/SetSlots(receive_id=modify)"
+    - utter: utter_ask_modify_content
+    - user: "/SetSlots(modify_content=收货人姓名)"
+    - utter: utter_ask_receiver_name
+    - user: "蛋蛋"
+    - utter: utter_ask_if_modify_continue
+    - user: "/SetSlots(if_modify_continue=true)"
+    - utter: utter_ask_modify_content
+    - user: "/SetSlots(modify_content=收货人电话)"
+    - utter: utter_ask_receiver_phone
+    - user: "13511111111"
+    - utter: utter_ask_if_modify_continue
+    - user: "/SetSlots(if_modify_continue=true)"
+    - utter: utter_ask_modify_content
+    - user: "/SetSlots(modify_content=收货地址)"
+    - bot: "请选择省份"
+    - user: "/SetSlots(receive_province=上海)"
+    - bot: "请选择城市"
+    - user: "/SetSlots(receive_city=上海市)"
+    - bot: "请选择城区"
+    - user: "/SetSlots(receive_district=嘉定区)"
+    - utter: utter_ask_receive_street_address
+    - user: "街道信息"
+    - utter: utter_ask_if_modify_continue
+    - user: "/SetSlots(if_modify_continue=true)"
+    - utter: utter_ask_modify_content
+    - user: "/SetSlots(modify_content=false)"
+    - bot: "- 收货人姓名：蛋蛋\n- 联系电话：13511111111\n- 收货省份：上海\n- 收货城市：上海市\n- 收货城区：嘉定区\n- 收货地址：街道信息"
+    - bot: "是否确认修改？"
+    - user: "/SetSlots(set_receive_info=true)"
+    - bot: "订单收货信息已修改"
+    - utter: utter_ask_continue_conversation
+
+  - test_case: WVTCHcLnCMBdpM6XAAAV
+    steps:
+    - user: "切换用户"
+    - utter: utter_ask_continue_conversation
+    - user: "查询订单信息"
+    - bot: "请选择订单"
+    - user: "取消订单"
+    - bot: "请选择订单"
+    - user: "/SetSlots(order_id=ord7b302245c2a64a9b)"
+    - bot: "- [待发货]**订单ID**：ord7b302245c2a64a9b\n  - 创建时间：2026-02-21 09:04:43\n  - 支付时间：2026-02-21 09:06:13\n- **订单明细**：\n  - 纯棉四件套 × 1 |                 289.00-94.94=194.06\n  - **合计**：289.0-94.94=194.06\n- **收货信息**：\n  - 收货人：蛋蛋\n  - 联系电话：13511111111\n  - 收货地址：上海                上海市                嘉定区                街道信息"
+    - utter: utter_ask_if_cancel_order
+    - user: "/SetSlots(if_cancel_order=true)"
+    - bot: "订单已取消，退款金额将在24小时内返还您的账户"
+    - utter: utter_ask_continue_interrupted_flow_confirmation
+
+  - test_case: LW-K2DMEH3wVAqF1AAAX
+    steps:
+    - user: "切换用户"
+    - utter: utter_ask_continue_conversation
+    - user: "查询订单"
+    - bot: "请选择订单"
+    - user: "申请售后"
+    - bot: "请选择订单"
+    - user: "/SetSlots(order_id=ord0aea6c6573fc459a)"
+    - bot: "- [售后中]**订单ID**：ord0aea6c6573fc459a\n  - 创建时间：2026-02-26 16:39:00\n  - 支付时间：2026-02-26 16:40:49\n  - 签收时间：2026-02-27 15:13:14\n- **订单明细**：\n  - 女士手提包 × 1 |                 259.00-168.61=90.39\n  - **合计**：259.0-168.61=90.39\n- **收货信息**：\n  - 收货人：胡成\n  - 联系电话：14772611077\n  - 收货地址：新疆维吾尔自治区                喀什地区                麦盖提县                永安街y座\n- **最近物流信息**：\n  - 2026-02-27 15:13:14 新疆维吾尔自治区喀什地区麦盖提县永安街y座 已签收"
+    - bot: "- [审核中]**售后ID**：ptsc9042171cce5401d\n- **订单明细**：\n  -女士手提包 × 1\n- **退款金额**：90.39"
+    - bot: "没有可申请售后的订单明细"
+    - utter: utter_ask_continue_interrupted_flow_confirmation
+
+  - test_case: HTEpMLowoEOXIEP1AAAZ
+    steps:
+    - user: "切换用户"
+    - utter: utter_ask_continue_conversation
+    - user: "查询订单"
+    - bot: "请选择订单"
+    - user: "申请售后"
+    - bot: "请选择订单"
+    - user: "/SetSlots(order_id=orde14a6962f6bd401c)"
+    - bot: "- [售后中]**订单ID**：orde14a6962f6bd401c\n  - 创建时间：2026-02-18 02:21:32\n  - 支付时间：2026-02-18 02:32:53\n  - 签收时间：2026-02-18 20:23:09\n- **订单明细**：\n  - 冷冻牛排套餐 × 1 |                 128.00-110.01=17.99\n  - 女士羽绒服 × 1 |                 599.00-69.05=529.95\n  - **合计**：727.0-179.06=547.94\n- **收货信息**：\n  - 收货人：胡成\n  - 联系电话：14772611077\n  - 收货地址：新疆维吾尔自治区                喀什地区                麦盖提县                永安街y座\n- **最近物流信息**：\n  - 2026-02-18 20:23:08 新疆维吾尔自治区喀什地区麦盖提县永安街y座 已签收"
+    - bot: "- [审核中]**售后ID**：pts2ede80ab0caa481c\n- **订单明细**：\n  -女士羽绒服 × 1\n- **退款金额**：529.95"
+    - bot: "请选择要申请售后的订单明细"
+    - user: "/SetSlots(order_detail_ids=ordd1b501d73fd9041ea)"
+    - bot: "- ordd1b501d73fd9041ea                    \n- 冷冻牛排套餐 × 1                    \n- 128.00-110.01=17.99                    \n  请选择售后类型"
+    - user: "/SetSlots(postsale_type=退货)"
+    - bot: "- ordd1b501d73fd9041ea                    \n- 冷冻牛排套餐 × 1                    \n- 128.00-110.01=17.99                    \n  请选择售后原因"
+    - user: "/SetSlots(postsale_reason=临近保质期)"
+    - bot: "您的退货申请已提交，审核结果将在48小时内通知您"
+    - utter: utter_ask_continue_interrupted_flow_confirmation

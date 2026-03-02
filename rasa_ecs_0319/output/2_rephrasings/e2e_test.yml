@@ -1,0 +1,54 @@
+conversations:
+- original_test_case: e2e_tests/e2e_test.yml::LW-K2DMEH3wVAqF1AAAX
+  steps:
+  - user: 切换用户
+    llm_commands:
+    - start flow switch_user_id
+    passing_rephrasings:
+    - 换一个用户
+    - 请切换到另一个用户
+    - 我需要切换当前用户
+    - 更换用户账号
+    - 转换用户身份
+    - 请更换用户
+    - 我想切换到其他用户
+    - 请切换至另一用户
+    - 重新选择用户
+    - 请切换用户
+  - utter: utter_ask_continue_conversation
+  - user: 查询订单
+    llm_commands:
+    - start flow query_order_detail
+    passing_rephrasings:
+    - 查看我的订单
+    - 我要查看订单信息
+    - 帮我查一下订单
+    - 请帮我查询订单
+    - 想知道我的订单状态
+    - 我需要查看订单详情
+    - 有没有我的订单记录
+    - 请展示我的订单
+    - 我想了解订单情况
+    - 可以看一下我的订单吗
+  - bot: 请选择订单
+  - user: 申请售后
+    llm_commands:
+    - start flow postsale
+    passing_rephrasings:
+    - 我要申请售后服务
+    - 想要发起售后申请
+    - 请帮我处理售后
+    - 我需要申请退换货
+    - 我想提出售后请求
+    - 申请售后流程
+    - 请求进行售后操作
+    - 我想申请售后服务
+    - 请协助我申请售后
+    failing_rephrasings:
+    - 有售后问题需要处理
+  - bot: 请选择订单
+  - user: /SetSlots(order_id=ord0aea6c6573fc459a)
+  - bot: "- [售后中]**订单ID**：ord0aea6c6573fc459a\n  - 创建时间：2026-02-26 16:39:00\n  - 支付时间：2026-02-26 16:40:49\n  - 签收时间：2026-02-27 15:13:14\n- **订单明细**：\n  - 女士手提包 × 1 |                 259.00-168.61=90.39\n  - **合计**：259.0-168.61=90.39\n- **收货信息**：\n  - 收货人：胡成\n  - 联系电话：14772611077\n  - 收货地址：新疆维吾尔自治区                喀什地区                麦盖提县                永安街y座\n- **最近物流信息**：\n  - 2026-02-27 15:13:14 新疆维吾尔自治区喀什地区麦盖提县永安街y座 已签收"
+  - bot: "- [审核中]**售后ID**：ptsc9042171cce5401d\n- **订单明细**：\n  -女士手提包 × 1\n- **退款金额**：90.39"
+  - bot: 没有可申请售后的订单明细
+  - utter: utter_ask_continue_interrupted_flow_confirmation

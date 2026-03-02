@@ -1,0 +1,41 @@
+fixtures: []
+metadata: []
+stub_custom_actions: {}
+test_cases:
+- test_case: O8a85bIHWpKwz7NzAAAB
+  steps:
+  - user: "切换用户"
+  - utter: utter_ask_continue_conversation
+  - user: "查询支持的物流"
+  - bot: "支持的快递有:\n- 中通\n- 圆通\n- 申通\n- 邮政\n- 韵达\n- 顺丰"
+  - utter: utter_ask_continue_conversation
+
+- test_case: BJC634VixeJbbAOOAAAJ
+  steps:
+  - user: "切换用户"
+  - utter: utter_ask_continue_conversation
+  - user: "查询订单"
+  - bot: "请选择订单"
+  - user: "投诉物流"
+  - bot: "请选择订单"
+  - user: "/SetSlots(order_id=ord07c30f0563014b87)"
+  - bot: "- **订单ID**：ord07c30f0563014b87\n  - 衣柜推拉门 × 1\n- **物流ID**：lgt3a30bb893514418f\n- **物流信息**：\n  - 2026-02-18 06:16:31 台湾省彰化县社头乡 已揽收\n  - 2026-02-18 07:02:59 离开 台湾省彰化县社头乡，发往 浙江省金华市\n  - 2026-02-18 10:55:18 到达 浙江省金华市\n  - 2026-02-18 11:04:51 离开 浙江省金华市，发往 江苏省徐州市\n  - 2026-02-18 12:27:54 到达 江苏省徐州市"
+  - bot: "请选择要反馈的问题："
+  - user: "/SetSlots(logistics_complaint=长时间未更新物流信息)"
+  - bot: "您的投诉已经收到，我们会尽快处理。"
+  - utter: utter_ask_continue_interrupted_flow_confirmation
+
+- test_case: AnGIrPH_wKqNskE5AAAN
+  steps:
+  - user: "切换用户"
+  - utter: utter_ask_continue_conversation
+  - user: "查询订单"
+  - bot: "请选择订单"
+  - user: "投诉物流"
+  - bot: "请选择订单"
+  - user: "/SetSlots(order_id=ord07c30f0563014b87)"
+  - bot: "- **订单ID**：ord07c30f0563014b87\n  - 衣柜推拉门 × 1\n- **物流ID**：lgt3a30bb893514418f\n- **物流信息**：\n  - 2026-02-18 06:16:31 台湾省彰化县社头乡 已揽收\n  - 2026-02-18 07:02:59 离开 台湾省彰化县社头乡，发往 浙江省金华市\n  - 2026-02-18 10:55:18 到达 浙江省金华市\n  - 2026-02-18 11:04:51 离开 浙江省金华市，发往 江苏省徐州市\n  - 2026-02-18 12:27:54 到达 江苏省徐州市"
+  - bot: "请选择要反馈的问题："
+  - user: "/SetSlots(logistics_complaint=false)"
+  - utter: utter_ask_continue_interrupted_flow_confirmation
+

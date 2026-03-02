@@ -1,0 +1,13 @@
+recipe: default.v1
+language: zh
+assistant_id: atguigu_ecs
+
+pipeline:
+  - name: CompactLLMCommandGenerator
+    llm:
+      model_group: qwen
+    flow_retrieval:
+      active: false # 禁用流程检索
+
+policies:
+  - name: FlowPolicy

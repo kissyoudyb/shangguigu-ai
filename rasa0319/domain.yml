@@ -1,0 +1,64 @@
+version: "3.1"
+
+slots:
+  recipient: #收款人
+    type: text
+    mappings:
+      - type: from_llm
+  amount: #转账金额
+    type: float
+    mappings:
+      - type: from_llm
+
+  balance: #余额
+    type: float
+    initial_value: 2000.0  #设置初始值
+    mappings:
+      - type: controlled
+
+  has_sufficient_funds: #余额是否充足，由我们来判断并且赋值
+#      type: boolean #错误写法
+      type: bool
+      mappings:
+          - type: controlled # 表示自己赋值：action中、调用set_slots
+
+  confirm_transfer: # 是否确认转账，由用户的回复来赋值
+    type: bool
+    mappings:
+      - type: from_llm
+
+responses:
+  utter_ask_recipient:
+    - text: "请输入你要转账的收款人？"
+    - text: "你要给谁打钱？"
+
+  utter_ask_amount:
+    - text: "你要转多少钱?"
+    - text: "转账金额是多少?"
+
+  utter_ask_confirm_transfer:
+    - text: "确认向{recipient}转账{amount}吗？"
+
+  utter_insufficient_funds:
+    - text: "抱歉.你的余额不足。当前余额{balance}"
+
+  utter_transfer_cancelled: # 取消转账的响应
+    - text: "好的，已取消转账。"
+
+  utter_transfer_complete:
+    - text: "好的. 已完成向{recipient}转账{amount}."
+
+  utter_free_chitchat_response:
+    - text: "placeholder"
+      metadata:
+        rephrase: True
+        rephrase_prompt: |
+          你是一个友好的助手，能帮助用户完成转账。
+          用户在闲聊，而助手需要以轻松愉快的语调做出回应。
+          用户：{{current_input}}
+          助手：
+          
+
+actions:
+  - action_check_sufficient_funds
+  - action_transfer

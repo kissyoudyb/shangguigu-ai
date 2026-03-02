@@ -1,0 +1,37 @@
+flows:
+  transfer_money:
+    description: 进行转账处理 # ！！！关键：LLM根据这个描述进行工作流的匹配
+    name: 转账处理工作流
+    steps:
+      - collect: recipient # 默认调用utter_ask_{slot名称} ===》 action_ask_{名称}
+#        utter: utter_ask_recipient #也可以明确指定调用的响应
+      - collect: amount
+        description: the number of US dollars to send
+      - action: action_check_sufficient_funds
+        next:
+          - if: not slots.has_sufficient_funds
+            then:
+#               # 进入if，说明余额不足，回复余额不足
+                - action: utter_insufficient_funds
+                  next: END
+          - else: confirm_transfer
+              # 进入else，说明余额充足，执行下一步，收集槽位：是否确认转账
+#              id: confirm_transfer
+#              next: END
+      - collect: confirm_transfer
+        id: confirm_transfer
+        ask_before_filling: true # 强制slot填充必须经过询问，避免自动填充
+        next:
+          - if: not slots.confirm_transfer
+            then:
+#             # 进入if，说明用户 不转账
+              - action: utter_transfer_cancelled
+                next: END
+          - else: action_transfer
+              # 进入else，说明用户 确认转账
+#            - action: action_transfer
+      - action: action_transfer
+        id: action_transfer
+      - action: utter_transfer_complete
+
+

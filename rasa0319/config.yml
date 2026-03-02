@@ -1,0 +1,17 @@
+recipe: default.v1
+
+language: zh
+
+pipeline:
+- name: CompactLLMCommandGenerator
+  llm:
+    model_group: rasa_command_generation_model
+  flow_retrieval:
+    active: false
+
+policies:
+- name: FlowPolicy
+#  - name: EnterpriseSearchPolicy
+
+# assistant_id: 20250827-113214-calm-motor
+assistant_id: 20260302-010730-recent-dope

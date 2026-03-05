@@ -9,7 +9,7 @@ flows:
     description: 处理知识库问答的流程
     name: pattern search
     steps:
-      - action: utter_chitchat_response
+      - action: action_trigger_search
 
   pattern_cannot_handle:
     description: 处理命令生成失败场景的对话修复流程

@@ -4,7 +4,9 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import StreamingResponse
 
-from rag import invoke_rag, chat_history
+# from rag import invoke_rag, chat_history
+# 测试带缓存的
+from rag_eval_cache import invoke_rag, chat_history
 
 # 创建 FastAPI 实例
 app = FastAPI()

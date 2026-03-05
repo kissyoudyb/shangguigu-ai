@@ -11,8 +11,8 @@ from transformers import AutoModelForSequenceClassification, AutoTokenizer
 # from retrieve_tuning_before_1 import rephrase_retrieve, get_rag_chain, get_llm, get_retriever
 # from retrieve_tuning_before_2 import rephrase_retrieve, get_rag_chain, get_llm, get_retriever
 # from retrieve_tuning_after_1 import rephrase_retrieve, get_rag_chain, get_llm, get_retriever
-from retrieve_tuning_after_2 import rephrase_retrieve, get_rag_chain, get_llm, get_retriever
-# from retrieve_tuning_hy import rephrase_retrieve, get_rag_chain, get_llm, get_retriever, get_bm25_retriever
+# from retrieve_tuning_after_2 import rephrase_retrieve, get_rag_chain, get_llm, get_retriever
+from retrieve_tuning_hy import rephrase_retrieve, get_rag_chain, get_llm, get_retriever, get_bm25_retriever
 
 # 存储对话历史
 chat_history = []
@@ -33,8 +33,8 @@ embedding_model = HuggingFaceEmbeddings(
 llm = get_llm()
 
 # 3、加载重排序模型（配合重排，after_2）
-rerank_model = AutoModelForSequenceClassification.from_pretrained("/root/embedding_model/BAAI/bge-reranker-base")
-rerank_tokenizer = AutoTokenizer.from_pretrained("/root/embedding_model/BAAI/bge-reranker-base")
+# rerank_model = AutoModelForSequenceClassification.from_pretrained("/root/embedding_model/BAAI/bge-reranker-base")
+# rerank_tokenizer = AutoTokenizer.from_pretrained("/root/embedding_model/BAAI/bge-reranker-base")
 
 
 async def invoke_rag(query,conversation_id,chat_history):
@@ -45,12 +45,12 @@ async def invoke_rag(query,conversation_id,chat_history):
 
     # 1、获取检索器
     retriever=get_retriever(k=20,embedding_model=embedding_model)
-    # bm25_retriever = get_bm25_retriever() #配合混合检索 hy
+    bm25_retriever = get_bm25_retriever() #配合混合检索 hy
     # 2、执行重述、检索
     # retrieve_result= rephrase_retrieve(input,llm,retriever) #普通检索、before_2(hyde假设文档)
     # retrieve_result= rephrase_retrieve(input,llm,retriever,5) #配合多查询 before_1、after_1
-    retrieve_result= rephrase_retrieve(input,llm,retriever,rerank_tokenizer=rerank_tokenizer,rerank_model=rerank_model) # 配合重排，after_2
-    # retrieve_result= rephrase_retrieve(input,llm,retriever,bm25_retriever) # 配合混合检索 hy
+    # retrieve_result= rephrase_retrieve(input,llm,retriever,rerank_tokenizer=rerank_tokenizer,rerank_model=rerank_model) # 配合重排，after_2
+    retrieve_result= rephrase_retrieve(input,llm,retriever,bm25_retriever) # 配合混合检索 hy
     # 3、获取RAG链
     rag_chain = get_rag_chain(retrieve_result,llm)
     # 4、异步执行RAG链，流式输出
